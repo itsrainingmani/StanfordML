@@ -17,19 +17,10 @@ for iter = 1:num_iters
     %       of the cost function (computeCostMulti) and gradient here.
     %
 
-    deriv = (X*theta - y);
-    A = theta;
-    temp = theta;
-    
-    for i = 1:size(X,2)
-      A(i) = (1/m)*sum(deriv'*X(:,i));
-    endfor
-    for i = 1:size(X,2)
-      temp(i) = theta(i) - alpha*A(i);
-    endfor
-    for i = 1:size(X,2)
-      theta(i) = temp(i);
-    endfor
+    h = X*theta;
+    errors = h - y;
+    delta = X' * errors;
+    theta = theta - (alpha / m) * delta;
 
     % ============================================================
 
