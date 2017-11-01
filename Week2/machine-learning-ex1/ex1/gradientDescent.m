@@ -17,13 +17,13 @@ for iter = 1:num_iters
     %       of the cost function (computeCost) and gradient here.
     %
     deriv = (X*theta - y);
+    A = zeros(size(theta,1),1);
     A1 =  (1/m)*sum((X*theta - y));
     A2 = (1/m)*sum(deriv'*X(:,2));
     temp1 = theta(1) - alpha*A1;
     temp2 = theta(2) - alpha*A2;
     theta(1) = temp1;
     theta(2) = temp2;
-
 
     % ============================================================
 
